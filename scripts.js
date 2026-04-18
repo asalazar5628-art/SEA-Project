@@ -24,11 +24,11 @@
  */
 
 //images for the soccer players. For the players I couldnt find the card for I entered an old photo.
-const FRESH_PRINCE_URL =
+const LIONEL_MESS_URL =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNA8hvl4uoLJZw1lYkO6oOCXG9fu3d1Vz89w&s";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
+const XAVI_URL =
+  "https://www.dexerto.com/cdn-image/wp-content/uploads/2021/10/21/32.jpg?width=1200&quality=75&format=auto";
+const CRISTIANO_RONALDO_URL =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaw-Br5Qi8Nb4YdS2s6cxJ3fX53bbM8TSDw&s";
 
 //player details name, pacing, dribble, shooting, defense, passing, physicality
@@ -71,11 +71,11 @@ function showCards() {
     // own data, you'll need to do something totally different here.
     let imageURL = "";
     if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
+      imageURL = LIONEL_MESS_URL;
     } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
+      imageURL = XAVI_URL;
     } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
+      imageURL = CRISTIANO_RONALDO_URL;
     }
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
