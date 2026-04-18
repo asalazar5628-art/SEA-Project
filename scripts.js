@@ -23,12 +23,24 @@
  *
  */
 
+//images for the soccer players.
 const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNA8hvl4uoLJZw1lYkO6oOCXG9fu3d1Vz89w&s";
 const CURB_POSTER_URL =
   "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
 const EAST_LOS_HIGH_POSTER_URL =
   "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+
+//player details name, pacing, dribble, shooting, defense, passing, physicality
+function Player(name, PAC, DRI, SHO, DEF, PAS, PHY){
+  this.name = name;
+  this.PAC = PAC;
+  this.DRI = DRI;
+  this.SHO = SHO;
+  this.DEF = DEF;
+  this.PAS = PAS;
+  this.PHY = PHY;
+}
 
 // This is an array of strings (TV show titles)
 let titles = [
