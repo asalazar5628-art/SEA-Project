@@ -49,11 +49,26 @@ const player1 = new Player("Lionel Messi", "5'7", "CF", 94, 93, 97, 87, 46, 82, 
 const player2 = new Player("Xavier Hernández Creus", "5'7", "CM", 92, 93, 97, 87, 46, 82, 67);
 const player3 = new Player("Cristiano Ronaldo", "6'1", "CF", 92, 92, 93, 90, 59, 79, 89);
 
-// This is an array of strings (TV show titles)
-let titles = [
-  player1.name,
-  player2.name,
-  player3.name,
+// This is an array of objects containing what I want attatched to each player
+let players = [
+  {//player 1
+    playerName: player1.name,
+    imageURL: LIONEL_MESS_URL,
+    //array of what I want shown in that 9 bullet list in the HTML DOC
+    bulletPoints: [player1.height, player1.pos, player1.rating, player1.PAC, player1.DRI, player1.SHO, player1.DEF, player1.PAS, player1.PHY]
+  },
+  {//player 2
+    playerName: player2.name,
+    imageURL: XAVI_URL,
+    //array of what I want shown in that 9 bullet list in the HTML DOC
+    bulletPoints: [player2.height, player2.pos, player2.rating, player2.PAC, player2.DRI, player2.SHO, player2.DEF, player2.PAS, player2.PHY]
+  },
+  {//player 3
+    playerName: player3.name,
+    imageURL: LIONEL_MESS_URL,
+    //array of what I want shown in that 9 bullet list in the HTML DOC
+    bulletPoints: [player3.height, player3.pos, player3.rating, player3.PAC, player3.DRI, player3.SHO, player3.DEF, player3.PAS, player3.PHY]
+  }
 ];
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
@@ -64,8 +79,8 @@ function showCards() {
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
+  for (let i = 0; i < players.length; i++) {
+    let title = players[i].playerName;
 
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
