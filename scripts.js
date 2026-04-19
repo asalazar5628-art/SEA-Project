@@ -73,46 +73,47 @@ let players = [
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
+
+let indexOfPlayers = 0;
+
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < players.length; i++) {
-    let title = players[i].playerName;
+  const currentPlayer = players[indexOfPlayers];
 
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = LIONEL_MESS_URL;
-    } else if (i == 1) {
-      imageURL = XAVI_URL;
-    } else if (i == 2) {
-      imageURL = CRISTIANO_RONALDO_URL;
-    }
-
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
-  }
+  const nextCard = templateCard.cloneNode(true); // Copy the template card
+  editCardContent(nextCard, currentPlayer); // instead of sending in just the title we are sending in all of data attached to each player to edit the card
+  cardContainer.appendChild(nextCard); // Add new card to the container
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, player) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+  cardHeader.textContent = player.playerName;
 
   const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  cardImage.src = player.imageURL;
+  cardImage.alt = player.playerName + " Poster";
 
+
+  const bullets = card.querySelector("ul");//find the unordered list
+  bullets.innerHTML = "";//clear them like before. just the inside this class
+
+  //go into the bullet point list like a reagular array and fill them with the attributes
+  for(let i = 0; i < player.bulletPoints.length; i++){
+
+    const point = document.createElement("li"); //here we create the bullet point that we just cleared on line 104
+    point.textContent =  player.bulletPoints[i];
+    bullets.appendChild(point);//we append the  point to the ul class like we did with the card
+  }
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
   // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+  console.log("new card:", player.playerName, "- html: ", card);
 }
 
 // This calls the addCards() function when the page is first loaded
