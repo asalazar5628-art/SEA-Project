@@ -125,6 +125,8 @@ function editCardContent(card, player) {
   for(let i = 0; i < player.bulletPoints.length; i++){
 
     const point = document.createElement("li"); //here we create the bullet point that we just cleared
+    
+    //following the template i have in the HTML based on the index I crated the specific bullet point text
     if(i == 0){
       point.textContent = "Height: " + player.bulletPoints[i];
     }else if(i == 1){
@@ -183,6 +185,7 @@ function searchForPlayer(){
   const searchInput = document.getElementById("search-input").value.toLowerCase();//tell javascript to look for that specific class
   //we are gonna go through the total number of player names and search for it
   for(let i = 0; i < players.length; i++){
+    //.includes(word) allows for a search that contains those letters
     if(players[i].playerName.toLowerCase().includes(searchInput)){
       //set the current card index to this ith Position
       indexOfPlayers = i;
@@ -191,6 +194,16 @@ function searchForPlayer(){
   }
 }
 
+
+
+function sortAlpha(){
+  players.sort(function(name1, name2){
+    return name1.playerName.localeCompare(name2.playerName);
+  });
+
+  indexOfPlayers = 0;
+  showCards();
+}
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
@@ -203,9 +216,4 @@ function quoteAlert() {
   alert(
     "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
   );
-}
-
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
 }
