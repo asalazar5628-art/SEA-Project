@@ -197,23 +197,40 @@ function searchForPlayer(){
 
 
 function sortAlpha(){
+
+  //sorting the players array and the two parameters in function() are the player names of those objects
   players.sort(function(name1, name2){
+    //compare the strings
     return name1.playerName.localeCompare(name2.playerName);
   });
 
+  //set that current value to the front
   indexOfPlayers = 0;
+  //show the cards
+  showCards();
+}
+
+function sortRating(){
+  players.sort(function(rating1, rating2){
+    //compare the ratings
+    return rating2.bulletPoints[2] - rating1.bulletPoints[2];
+  })
+
+  //same as sortAlpha
+  indexOfPlayers = 0;
+  showCards();
+}
+
+function removeCard(){
+  players.pop();
+  //consider that the index might be larger than the total amount of characters
+  if(indexOfPlayers >= players.length){
+    //reset the index
+    indexOfPlayers = 0;
+  }
+  //show the cards
   showCards();
 }
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
-
-
-
-
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
-  );
-}

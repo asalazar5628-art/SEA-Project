@@ -23,7 +23,8 @@
     <input type="text" id="search-input" placeholder="Search for a player" />
     <button onclick="searchForPlayer()">confirm</button>
 
-    <button onclick="sortAlpha()">Sort Alphabetically</button>
+    
+
     <div id="card-container"></div>
     <div class="card" style="display: none">
       <div class="card-content">
@@ -43,6 +44,9 @@
       </div>
     </div>
     <div class="footer">
+      <button onclick ="removeCard()">Remove last player</button>
+      <button onclick="sortAlpha()">Sort Alphabetically</button>
+      <button onclick="sortRating()">Sort Rating</button>
     </div>
   </body>
 </html>
