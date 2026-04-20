@@ -31,7 +31,11 @@ const XAVI_URL =
 const CRISTIANO_RONALDO_URL =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaw-Br5Qi8Nb4YdS2s6cxJ3fX53bbM8TSDw&s";
 
-const INIESTA_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0A6gBc0xB3s_qbXxa8ncbOewW172KYyDaJg&s";
+const INIESTA_URL = 
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0A6gBc0xB3s_qbXxa8ncbOewW172KYyDaJg&s";
+
+const ANDREI_URL = 
+  "https://www.fifauteam.com/pt/wp-content/uploads/2012/07/A028-1.jpg";
 
 //player details name, pacing, dribble, shooting, defense, passing, physicality
 function Player(name, height, pos, rating, PAC, DRI, SHO, DEF, PAS, PHY){
@@ -51,6 +55,7 @@ const player1 = new Player("Lionel Messi", "5'7", "CF", 94, 93, 97, 87, 46, 82, 
 const player2 = new Player("Xavier Hernández Creus", "5'7", "CM", 92, 93, 97, 87, 46, 82, 67);
 const player3 = new Player("Cristiano Ronaldo", "6'1", "CF", 92, 92, 93, 90, 59, 79, 89);
 const player4 = new Player("Andrés Iniesta Luján", "5'7", "CAM", 91, 78, 91, 72, 65, 90, 55);
+//const player5 = new Player("Andrei Arshavin", )
 
 
 // This is an array of objects containing what I want attatched to each player
@@ -178,13 +183,14 @@ function searchForPlayer(){
   const searchInput = document.getElementById("search-input").value.toLowerCase();//tell javascript to look for that specific class
   //we are gonna go through the total number of player names and search for it
   for(let i = 0; i < players.length; i++){
-    if(players[i].playerName.toLowerCase() == searchInput){
+    if(players[i].playerName.toLowerCase().includes(searchInput)){
       //set the current card index to this ith Position
       indexOfPlayers = i;
       showCards();
     }
   }
 }
+
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
