@@ -107,7 +107,25 @@ function editCardContent(card, player) {
   for(let i = 0; i < player.bulletPoints.length; i++){
 
     const point = document.createElement("li"); //here we create the bullet point that we just cleared on line 104
-    point.textContent =  player.bulletPoints[i];
+    if(i == 0){
+      point.textContent = "Height: " + player.bulletPoints[i];
+    }else if(i == 1){
+      point.textContent = "Position: " + player.bulletPoints[i];
+    }else if(i == 2){
+      point.textContent = "Rating: " + player.bulletPoints[i];
+    }else if(i == 3){
+      point.textContent =  "Pacing: " + player.bulletPoints[i];
+    }else if(i == 4){
+      point.textContent =  "Dribbling: " + player.bulletPoints[i];
+    }else if(i == 5){
+      point.textContent =  "Shooting: " + player.bulletPoints[i];
+    }else if(i == 6){
+      point.textContent =  "Defense: " + player.bulletPoints[i];
+    }else if(i == 7){
+      point.textContent =  "Passing: " + player.bulletPoints[i];
+    }else{
+      point.textContent =  "Physicality: " + player.bulletPoints[i];
+    }
     bullets.appendChild(point);//we append the  point to the ul class like we did with the card
   }
   // You can use console.log to help you debug!
