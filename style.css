@@ -82,10 +82,16 @@ body {
 
 .controls {
   display: flex;
-  justify-content: center;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
   gap: 10px;
   margin-top: 20px;
-  flex-wrap: wrap;
+  transform: translateY(0%);
+  top: 50%;
+  width: 100%;
+  left: 0;
+  box-sizing: border-box;
 }
 
 #card-container {

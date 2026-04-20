@@ -174,7 +174,17 @@ function goBack(){
 
 
 //search for a certain player
-
+function searchForPlayer(){
+  const searchInput = document.getElementById("search-input").value.toLowerCase();//tell javascript to look for that specific class
+  //we are gonna go through the total number of player names and search for it
+  for(let i = 0; i < players.length; i++){
+    if(players[i].playerName.toLowerCase() == searchInput){
+      //set the current card index to this ith Position
+      indexOfPlayers = i;
+      showCards();
+    }
+  }
+}
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
