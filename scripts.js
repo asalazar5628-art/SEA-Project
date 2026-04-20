@@ -119,7 +119,7 @@ function editCardContent(card, player) {
   //go into the bullet point list like a reagular array and fill them with the attributes
   for(let i = 0; i < player.bulletPoints.length; i++){
 
-    const point = document.createElement("li"); //here we create the bullet point that we just cleared on line 104
+    const point = document.createElement("li"); //here we create the bullet point that we just cleared
     if(i == 0){
       point.textContent = "Height: " + player.bulletPoints[i];
     }else if(i == 1){
