@@ -65,7 +65,7 @@ let players = [
   },
   {//player 3
     playerName: player3.name,
-    imageURL: LIONEL_MESS_URL,
+    imageURL: CRISTIANO_RONALDO_URL,
     //array of what I want shown in that 9 bullet list in the HTML DOC
     bulletPoints: [player3.height, player3.pos, player3.rating, player3.PAC, player3.DRI, player3.SHO, player3.DEF, player3.PAS, player3.PHY]
   }
@@ -134,8 +134,36 @@ function editCardContent(card, player) {
   console.log("new card:", player.playerName, "- html: ", card);
 }
 
+//now we want to be able to go from one card to the next so we have
+function goToNext(){
+  indexOfPlayers++;
+
+  //This is what we do in order to make the selection go in a circle
+  if(indexOfPlayers >= players.length){
+    indexOfPlayers = 0;
+  }
+
+  //now we show the new card
+  showCards();
+}
+
+function goBack(){
+  indexOfPlayers--;
+
+  //same concept as gotonect
+  if(indexOfPlayers < 0){
+    indexOfPlayers = players.length - 1;
+  }
+
+  //show the card
+  showCards();
+}
+
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
+
+
+
 
 function quoteAlert() {
   console.log("Button Clicked!");
