@@ -31,6 +31,8 @@ const XAVI_URL =
 const CRISTIANO_RONALDO_URL =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaw-Br5Qi8Nb4YdS2s6cxJ3fX53bbM8TSDw&s";
 
+const INIESTA_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0A6gBc0xB3s_qbXxa8ncbOewW172KYyDaJg&s";
+
 //player details name, pacing, dribble, shooting, defense, passing, physicality
 function Player(name, height, pos, rating, PAC, DRI, SHO, DEF, PAS, PHY){
   this.name = name;
@@ -48,6 +50,8 @@ function Player(name, height, pos, rating, PAC, DRI, SHO, DEF, PAS, PHY){
 const player1 = new Player("Lionel Messi", "5'7", "CF", 94, 93, 97, 87, 46, 82, 67);
 const player2 = new Player("Xavier Hernández Creus", "5'7", "CM", 92, 93, 97, 87, 46, 82, 67);
 const player3 = new Player("Cristiano Ronaldo", "6'1", "CF", 92, 92, 93, 90, 59, 79, 89);
+const player4 = new Player("Andrés Iniesta Luján", "5'7", "CAM", 91, 78, 91, 72, 65, 90, 55);
+
 
 // This is an array of objects containing what I want attatched to each player
 let players = [
@@ -68,6 +72,12 @@ let players = [
     imageURL: CRISTIANO_RONALDO_URL,
     //array of what I want shown in that 9 bullet list in the HTML DOC
     bulletPoints: [player3.height, player3.pos, player3.rating, player3.PAC, player3.DRI, player3.SHO, player3.DEF, player3.PAS, player3.PHY]
+  },
+  {//player 4
+    playerName: player4.name,
+    imageURL: INIESTA_URL,
+    //array of what I want shown in that 9 bullet list in the HTML DOC
+    bulletPoints: [player4.height, player4.pos, player4.rating, player4.PAC, player4.DRI, player4.SHO, player4.DEF, player4.PAS, player4.PHY]
   }
 ];
 // Your final submission should have much more data than this, and
@@ -87,6 +97,9 @@ function showCards() {
   const nextCard = templateCard.cloneNode(true); // Copy the template card
   editCardContent(nextCard, currentPlayer); // instead of sending in just the title we are sending in all of data attached to each player to edit the card
   cardContainer.appendChild(nextCard); // Add new card to the container
+
+  const previewPlayer = templateCard.cloneNode(true);
+
 }
 
 function editCardContent(card, player) {
@@ -158,6 +171,10 @@ function goBack(){
   //show the card
   showCards();
 }
+
+
+//search for a certain player
+
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
