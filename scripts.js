@@ -275,7 +275,7 @@ function goToNext(){
 function goBack(){
   indexOfPlayers--;
 
-  //same concept as gotonect
+  //same concept as gotonext
   if(indexOfPlayers < 0){
     indexOfPlayers = players.length - 1;
   }
