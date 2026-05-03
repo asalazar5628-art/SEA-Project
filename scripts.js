@@ -199,7 +199,7 @@ let indexOfPlayers = 0;
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
+  cardContainer.innerHTML = "";//innerHTML changes the content inside the "card-container" element
   const templateCard = document.querySelector(".card");
 
   const currentPlayer = players[indexOfPlayers];
