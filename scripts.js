@@ -194,13 +194,13 @@ let players = [
 // you should use more than just an array of strings to store it all.
 
 
-let indexOfPlayers = 0;
+let indexOfPlayers = 0;//global counter
 
 // This function adds cards the page to display the data in the array
 function showCards() {
-  const cardContainer = document.getElementById("card-container");
+  const cardContainer = document.getElementById("card-container");//grab the elemet "card-container" 
   cardContainer.innerHTML = "";//innerHTML changes the content inside the "card-container" element
-  const templateCard = document.querySelector(".card");
+  const templateCard = document.querySelector(".card");//element in the CSS file 
 
   const currentPlayer = players[indexOfPlayers];
 
@@ -208,22 +208,22 @@ function showCards() {
   editCardContent(nextCard, currentPlayer); // instead of sending in just the title we are sending in all of data attached to each player to edit the card
   cardContainer.appendChild(nextCard); // Add new card to the container
 
-  const previewPlayer = templateCard.cloneNode(true);
-
 }
 
 function editCardContent(card, player) {
   card.style.display = "block";
 
+  //header element of card
   const cardHeader = card.querySelector("h2");
   cardHeader.textContent = player.playerName;
 
+  //the image element
   const cardImage = card.querySelector("img");
   cardImage.src = player.imageURL;
   cardImage.alt = player.playerName + " Poster";
 
-
-  const bullets = card.querySelector("ul");//find the unordered list
+  //unordered list element of card class
+  const bullets = card.querySelector("ul");
   bullets.innerHTML = "";//clear them like before. just the inside this class
 
   //go into the bullet point list like a reagular array and fill them with the attributes
@@ -261,7 +261,7 @@ function editCardContent(card, player) {
 
 //now we want to be able to go from one card to the next so we have
 function goToNext(){
-  indexOfPlayers++;
+  indexOfPlayers++;//increment global counter
 
   //This is what we do in order to make the selection go in a circle
   if(indexOfPlayers >= players.length){
@@ -273,7 +273,7 @@ function goToNext(){
 }
 
 function goBack(){
-  indexOfPlayers--;
+  indexOfPlayers--;//decrement global counter
 
   //same concept as gotonext
   if(indexOfPlayers < 0){
